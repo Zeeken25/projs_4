@@ -8,30 +8,30 @@ Item {
             width:16
             height:20
 
-            color: mousearea1.containsMouse ? '#505050' : "#707070"
+            property bool isInput: false
+
+            color:  mousearea1.containsMouse ? '#505050' : "#707070"
             border.color: "#000000"
             border.width: 1
+            //Drag.active: mouseAreaBox.drag.active
 
-            property bool inp: true
 
             MouseArea{
                 id: mousearea1
                 anchors.fill: parent
-                hoverEnabled: true
+                hoverEnabled: true                
                 onClicked: {
-                    parent.color = 'black';
-                    console.log("type: ",inp);
+                    //def.color = 'black';
+                    console.log("input type",def.isInput);
                     var component = Qt.createComponent("line.qml");
                     var object = component.createObject(def);
                     //console.log("X AND Y",mouse.getLineX,mouse.getLineY);
-                    object.destX = 50//mouse.getLineX(5)
-                    object.destY = 100//mouse.getLineY(5)
+                    object.destX = 200//mouse.getLineX(5)
+                    object.destY = 0//mouse.getLineY(5)
 
                 }
             }
 
         }
-
-
 
 }

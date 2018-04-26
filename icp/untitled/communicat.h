@@ -10,6 +10,8 @@
 class Communicat : public QObject
 {
     Q_OBJECT
+    //Q_PROPERTY(int getLineX( READ getLineX( WRITE setGetLineX( NOTIFY getLineX(Changed)
+
 public:
     explicit Communicat(QObject *parent = nullptr);
     Q_INVOKABLE void testDebug(QString text);
