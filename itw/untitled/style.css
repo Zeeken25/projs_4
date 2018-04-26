@@ -16,6 +16,12 @@ body{
 
 }
 
+a{
+    color:white;
+    text-decoration:none;
+}
+
+
 .buttonLine{
     display:flex;
     flex-direction:row;
@@ -26,7 +32,7 @@ body{
     padding-top:20px;
 }
 
-.button{
+.button{  
    font-size:25px;
    color:white;
    text-shadow:
@@ -101,4 +107,14 @@ body{
      content-align:center;
     justify-content: center;    
 
+}
+
+
+.map{
+    margin:auto;
+    margin-top:200px;
+    width:1300px;
+    height:700px;
+    border:solid rgba(0, 0, 0, 0.3) 30px;
+    border-radius:30px;
 }
