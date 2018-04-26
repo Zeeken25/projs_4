@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.3
 
 Item {
     x:8
@@ -24,7 +25,10 @@ Item {
         width:2
         height:destY
         color: mouseArea.containsMouse ? '#55AA55' : "black"
-
+        ToolTip {
+                id: toolt
+                text: qsTr("Value Here")
+            }
     }
     Rectangle{
         id:line3
@@ -40,6 +44,14 @@ Item {
         anchors.fill: line2
         hoverEnabled: true
         anchors.margins: -10
+        onHoveredChanged: {
+            if(mouseArea.containsMouse){
+                toolt.visible = true;
+            }
+            else{
+                toolt.visible = false;
+            }
+        }
     }
 
 

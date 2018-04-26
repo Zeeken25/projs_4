@@ -15,18 +15,15 @@ int main(int argc, char *argv[])
 
 
     QQmlApplicationEngine engine;
+
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
 
-    QScopedPointer<Communicat> mouse(new Communicat);
+    QScopedPointer<Communicat> comm(new Communicat);
 
-    engine.rootContext()->setContextProperty("mouse",mouse.data());
+    engine.rootContext()->setContextProperty("comm",comm.data());
 
-    /*test*/
-    QObject *box = engine.findChild<QObject*>("contbox");
-
-    /*test*/
 
     return app.exec();
 }

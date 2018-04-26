@@ -1,8 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>box.qml</file>
+        <file>inpSrc.qml</file>
         <file>boxCont.qml</file>
         <file>line.qml</file>
+        <file>box.qml</file>
     </qresource>
 </RCC>

@@ -1,6 +1,7 @@
 import QtQuick 2.6
 import QtQuick.Window 2.2
 import QtQuick.Controls 2.2
+import QtQuick.Dialogs 1.2
 
 Window {
     id: root
@@ -11,42 +12,20 @@ Window {
     maximumHeight: height
     maximumWidth: width
 
+    property int  blockType: 0
+    property int  globInputCnt: 0
+
     minimumHeight: height
     minimumWidth: width
-    /*
-    Item {
-        width: 200; height: 200
 
-        DropArea {
-            x: 75; y: 75
-            width: 50; height: 50
-
-            Rectangle {
-                anchors.fill: parent
-                color: "green"
-
-                visible: parent.containsDrag
-            }
-        }
-
-        Rectangle {
-            x: 100; y: 100
-            width: 20; height: 20
-            color: "red"
-
-            Drag.active: dragArea.drag.active
-            Drag.hotSpot.x: 10
-            Drag.hotSpot.y: 10
-
-            MouseArea {
-                id: dragArea
-                anchors.fill: parent
-
-                drag.target: parent
-            }
+    MessageDialog {
+        id: helpDialog
+        title: "Help"
+        text: "HelpString"
+        onAccepted: {
+            console.log("TODO")
         }
     }
-    */
 
     Row{
         id: header
@@ -54,37 +33,51 @@ Window {
         Button {
             id:reset
             text: "Reset"
+            width:50
             onClicked:{
-                mouse.testDebug("reset");
+                comm.testDebug("reset");
 
             }
         }
         Button {
             id:save
             text: "Save"
+            width:50
             onClicked:{
-                mouse.testDebug("save");
+                comm.testDebug("save");
             }
         }
         Button {
             id:load
             text: "Load"
+            width:50
             onClicked:{
-                mouse.testDebug("load");
+                comm.testDebug("load");
             }
         }
         Button {
             id:run
             text: "Run"
+            width:50
             onClicked:{
-                mouse.testDebug("Run");
+                comm.testDebug("Run");
             }
         }
         Button {
             id:step
             text: "Step"
+            width:50
             onClicked:{
-                mouse.testDebug("Step");
+                comm.testDebug("Step");
+            }
+        }
+        Button {
+            id:help
+            text: "Help"
+            width:50
+            onClicked:{
+                comm.testDebug("HELP!!!!!");
+                helpDialog.visible = true;
             }
         }
     }
@@ -96,44 +89,59 @@ Window {
         Button {
             id:block1
             text: "Block1"
+            width:50
             onClicked:{
-                mouse.testDebug("Block1");
-                var component = Qt.createComponent("boxCont.qml");
-                var object = component.createObject(container);
-                object.inCnt = 3
-                object.x = container.cursX
-                object.y = container.cursY
-
-
+                blockType = 1
+                mouseAreaBg.cursorShape = Qt.OpenHandCursor
             }
+
         }
 
         Button {
             id:block2
             text: "Block2"
+            width:50
             onClicked:{
-                mouse.testDebug("Block2");
+                comm.testDebug("Block2");
+                blockType = 2;
+                console.log(blockType);
             }
         }
         Button {
             id:block3
             text: "Block3"
+            width:50
             onClicked:{
-                mouse.testDebug("Block3");
+                comm.testDebug("Block3");
             }
         }
         Button {
             id:block4
             text: "Block4"
+            width:50
             onClicked:{
-                mouse.testDebug("Block4");
+                comm.testDebug("Block4");
             }
         }
         Button {
             id:block5
             text: "Block5"
+            width:50
             onClicked:{
-                mouse.testDebug("Block5");
+                comm.testDebug("Block5");
+            }
+        }
+        Button {
+            id:input
+            text: "Input"
+            width:50
+            onClicked:{
+                comm.testDebug("input");
+                var component = Qt.createComponent("inpSrc.qml");
+                var object = component.createObject(container);
+                object.y = globInputCnt*50;
+                globInputCnt++;
+                console.log(globInputCnt);
             }
         }
     }
@@ -148,48 +156,34 @@ Window {
             color:"#F8FFF8"
         }
 
-
         property int cursX: 0
         property int cursY: 0
 
-
-        /*
-        Rectangle{
-            width:90
-            height:240
-
-            color: "#F0A0A0"
-            border.color: "#000000"
-            border.width: 1
-            radius: 5
-        }
-        */
-        /*
-        function drawBox(x,y)
-        {
-            var component = Qt.createComponent("boxCont.qml");
-            var object = component.createObject(container);
-            object.x = x
-            object.y = y
-            return 1
-        }
-        */
         MouseArea {
             id:mouseAreaBg
+            acceptedButtons: Qt.RightButton | Qt.LeftButton
             anchors.fill: parent
             onPressed: {
                 container.cursX = mouseX
                 container.cursY = mouseY
             }
-            onClicked: {//edit
-                /*
-               // console.log("X is ", container.cursX, "Y is ", container.cursY);
-                var component = Qt.createComponent("boxCont.qml");
-                var object = component.createObject(container);
-                object.x = container.cursX
-                object.y = container.cursY
-                */
+            onClicked: {
+                var object = null;
+                if(mouse.button & Qt.LeftButton){
+                    console.log(blockType);
+                    if(blockType == 1){
+                        var component = Qt.createComponent("boxCont.qml");
+                        object = component.createObject(container);
+                        object.inCnt = 5;
+                        object.x = container.cursX;
+                        object.y = container.cursY;
+                        console.log(blockType);
+                    }
+                    mouseAreaBg.cursorShape =  Qt.ArrowCursor
+                    blockType = 0
+                }
             }
+
         }
     }
         /*
