@@ -49,27 +49,41 @@ void phong_onInit(int32_t width, int32_t height) {
   // init lightPosition
   init_Vec3(&phong.lightPosition, 1000.f, 1000.f, 1000.f);
 
-  VertexIndex buffer[2092 * 3];
-  for (int i = 0; i < 2092; i++) {
-	  for (int y = 0; y < 3; y++) {
-		  buffer[3 * i + y] = bunnyIndices[i][y];
-	  }
-  }
+  cpu_reserveUniform(phong.gpu,"projectionMatrix",UNIFORM_MAT4);
+  cpu_reserveUniform(phong.gpu,"viewMatrix",UNIFORM_MAT4);
 
+  ProgramID prog = cpu_createProgram(phong.gpu);
+  cpu_attachVertexShader(phong.gpu,prog, phong_vertexShader);
+  cpu_attachFragmentShader(phong.gpu,prog,phong_fragmentShader);
   
-  //MINE
-  cpu_createBuffers(phong.gpu,2092*3, (BufferID*) &buffer);
+  cpu_setAttributeInterpolation(phong.gpu,prog,0, ATTRIB_VEC3, SMOOTH);
+ 
+  BufferID buffer;
+  BufferID bufferN;
 
-  cpu_reserveUniform(phong.gpu, "viewMatrix", UNIFORM_MAT4);
-  cpu_reserveUniform(phong.gpu, "projectionMatrix", UNIFORM_MAT4);
+  cpu_createBuffers(phong.gpu, 2,&buffer );
+  cpu_createBuffers(phong.gpu, 1,&bufferN );
+  
+  cpu_bufferData(phong.gpu, buffer, sizeof(bunnyVertices), bunnyVertices);
+  cpu_bufferData(phong.gpu, bufferN, sizeof(bunnyIndices), bunnyIndices);
 
-  VertexPullerID *const puller[2092*3];
-  cpu_createVertexPullers(phong.gpu, 2092 * 3, puller);
-  //smh
-  //cpu_bindVertexPuller(phong.gpu, 0);
+  VertexPullerID vertPull;
+  cpu_createVertexPullers(phong.gpu, 1, &vertPull);  
+	
+  cpu_setVertexPullerHead(phong.gpu, vertPull, 0, buffer, sizeof(float) * 0, sizeof(float) * 3);
+  cpu_enableVertexPullerHead(phong.gpu, vertPull, 0);
+  cpu_setIndexing(phong.gpu, vertPull, bufferN, sizeof(float));
+  /*
+  cpu_setVertexPullerHead(phong.gpu,vertPull,0,buffer,sizeof(float) * 0,sizeof(float) * 6);
 
+  cpu_setVertexPullerHead(phong.gpu,vertPull,1,buffer,sizeof(float) * 3,sizeof(float) * 6);
 
-  //cpu_useProgram(phong.gpu,)
+  cpu_enableVertexPullerHead(phong.gpu,vertPull,0);
+
+  cpu_enableVertexPullerHead(phong.gpu,vertPull,1);
+
+  cpu_setIndexing(phong.gpu,vertPull,bufferN,sizeof(float));
+  */
 /// \todo Doprogramujte inicializační funkci.
 /// Zde byste měli vytvořit buffery na GPU, nahrát data do bufferů, vytvořit
 /// vertex puller a správně jej nakonfigurovat, vytvořit program, připojit k
@@ -126,7 +140,6 @@ void phong_onDraw(SDL_Surface* surface) {
   // clear color buffer
   cpu_clearColor(phong.gpu, &color);
 
-  
 /// \todo Doprogramujte kreslící funkci.
 /// Zde byste měli aktivovat shader program, aktivovat vertex puller, nahrát
 /// data do uniformních proměnných a
