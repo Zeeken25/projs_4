@@ -1,11 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Language" content="cs">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="">
+    <meta name="keywords" content="" lang="cs">
     <title>ITW2 - xgallr00</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if(document.cookie == null){
+                document.cookie = "show=false";
+            }
+            $('.arrow').click(function () {
+                var shVal = "false";
+                var cs = document.cookie.split(';');
+                for(var i = 0;  css  cs.length; i++) {
+                    if(cs[i] === "show"){
+                        shVal = cs.split('=')[1];
+                    }
+                }
+                $(".mainH1").text(shVal);
+                $(".mainH1").css("color","red");
+                if( shVal === "true") {
+                    $(".mainH1").css("color","blue");
+                    $('.midlogo').hide('slow');
+                    $.cookies.set("show", "true", { expires: 1200 });
+                }
+                else {
+                    $(".mainH1").css("color","green");
+                    $('.midlogo').show('slow');
+                    document.cookie = "show=true";
+                }
+            });
+        });
+    </script>
 </head>
 <body>
+    <script>
+
+    </script>
     <div class="header">
         <div class="buttonLine">
             <div class="button"><a href="index.html">Domů</a> </div>
@@ -17,48 +54,37 @@
         </div>
     </div>
     <h1 class="mainH1">Surrealitní kancelář</h1>
-    <!--//https://www.freewebheaders.com - header source-->
+    <img src="content/arrow.png" class="arrow">
     <div class="midlogo">
-        <div class="logo"><a href="index.html">placeholder</a></div>
-        <div class="logo"><a href="index.html">placeholder</a></div>
-        <div class="logo"><a href="index.html">placeholder</a></div>
+        <div class="logo"><a href="Location.html"><image src="content/map.png" class="ptrImg"></a></div>
+        <div class="logo"><a href="Contacts.html"><image src="content/contacts.png" class="ptrImg"></a></div>
+        <div class="logo"><a href="Informations.html"><image src="content/info.png" class="ptrImg"></a></div>
     </div>
     <div class="center">
         <div class = main>
             <div class="txt">
-            <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            </div>
-            <div class="txt">
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            </div>
-            <div class="txt">
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            </div>
-            <div class="txt">
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-                <p>asdasavsgghasvdhashdashdvahsvdhasvdhasvdhasvdhavsdghvsahdgvashdvashdvashdvashgdL</p>
-            </div>
-        </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien diam, placerat eget rutrum non, aliquam ut orci. Cras ut eros justo. Donec varius finibus augue, eget volutpat nunc commodo eget. Morbi vulputate, urna vel tempus feugiat, nibh nulla convallis odio, ut aliquam metus sem id felis. Donec sed pretium dui, sit amet convallis magna. Ut efficitur lorem sed neque posuere, vitae viverra enim mattis. Vivamus at justo fermentum, finibus turpis ac, fringilla ipsum. Integer vehicula, lacus nec tincidunt rhoncus, felis ex fringilla tortor, vitae volutpat urna eros at orci. Phasellus in eleifend metus. Morbi mattis vel massa id lacinia. Donec dignissim facilisis neque, vitae egestas tortor facilisis in.
 
+                Mauris lectus lorem, euismod id lacinia eu, tincidunt et tortor. Quisque pellentesque dui diam, sed consectetur ligula ultrices vel. Nulla congue pharetra massa ac facilisis. Morbi dignissim pellentesque orci, ac consectetur mi condimentum ac. Donec vehicula cursus nunc ut tristique. Vivamus ac tortor varius tortor fringilla facilisis in in erat. Nunc quis leo eget velit sagittis pharetra in et lectus. Pellentesque dapibus pretium volutpat.
+
+                Vivamus imperdiet ullamcorper lectus ac tincidunt. Aliquam erat volutpat. Sed pharetra consequat mauris, ut eleifend felis bibendum id. Donec porta eros nec mauris finibus, at varius magna mollis. Integer gravida tincidunt vestibulum. Cras bibendum ipsum ac ipsum porta, ut lobortis massa porta. Suspendisse consequat interdum nisi vitae convallis. Morbi id eros egestas, vulputate tortor in, tincidunt justo. Pellentesque fermentum neque ut tellus fringilla dictum. Cras pharetra mattis sem, vitae sodales nisl commodo ac. Suspendisse ornare arcu at est bibendum, sit amet tristique sem dictum. Pellentesque aliquam consectetur felis non pharetra. Ut eu auctor lectus, et vestibulum justo. Duis lorem lacus, posuere non nisl vel, imperdiet porttitor justo.</p>
+            </div>
+            <div class="txt">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sapien diam, placerat eget rutrum non, aliquam ut orci. Cras ut eros justo. Donec varius finibus augue, eget volutpat nunc commodo eget. Morbi vulputate, urna vel tempus feugiat, nibh nulla convallis odio, ut aliquam metus sem id felis. Donec sed pretium dui, sit amet convallis magna. Ut efficitur lorem sed neque posuere, vitae viverra enim mattis. Vivamus at justo fermentum, finibus turpis ac, fringilla ipsum. Integer vehicula, lacus nec tincidunt rhoncus, felis ex fringilla tortor, vitae volutpat urna eros at orci. Phasellus in eleifend metus. Morbi mattis vel massa id lacinia. Donec dignissim facilisis neque, vitae egestas tortor facilisis in.
+
+                    Mauris lectus lorem, euismod id lacinia eu, tincidunt et tortor. Quisque pellentesque dui diam, sed consectetur ligula ultrices vel. Nulla congue pharetra massa ac facilisis. Morbi dignissim pellentesque orci, ac consectetur mi condimentum ac. Donec vehicula cursus nunc ut tristique. Vivamus ac tortor varius tortor fringilla facilisis in in erat. Nunc quis leo eget velit sagittis pharetra in et lectus. Pellentesque dapibus pretium volutpat.
+
+                    Vivamus imperdiet ullamcorper lectus ac tincidunt. Aliquam erat volutpat. Sed pharetra consequat mauris, ut eleifend felis bibendum id. Donec porta eros nec mauris finibus, at varius magna mollis. Integer gravida tincidunt vestibulum. Cras bibendum ipsum ac ipsum porta, ut lobortis massa porta. Suspendisse consequat interdum nisi vitae convallis. Morbi id eros egestas, vulputate tortor in, tincidunt justo. Pellentesque fermentum neque ut tellus fringilla dictum. Cras pharetra mattis sem, vitae sodales nisl commodo ac. Suspendisse ornare arcu at est bibendum, sit amet tristique sem dictum. Pellentesque aliquam consectetur felis non pharetra. Ut eu auctor lectus, et vestibulum justo. Duis lorem lacus, posuere non nisl vel, imperdiet porttitor justo.</p>
+            </div>
+            <div class="main2">
+                <img src="content/pic1.png" class="picture">
+                <p>Rodinné domy</p>
+                <img src="content/pic1.png" class="picture">
+                <p>Byty</p>
+                <img src="content/pic1.png" class="picture">
+                <p>Parcely</p>
+            </div>
+        </div>>
     </div>
 
     <div class="footer">
