@@ -12,28 +12,32 @@
     <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            /*
             if(document.cookie == null){
                 document.cookie = "show=false";
             }
+            */
+            var shVal = "true";
+            $('.midlogo').hide();
             $('.arrow').click(function () {
-                var shVal = "false";
+                /*
                 var cs = document.cookie.split(';');
-                for(var i = 0;  css  cs.length; i++) {
+                for(var i = 0;  css < cs.length; i++) {
                     if(cs[i] === "show"){
                         shVal = cs.split('=')[1];
                     }
                 }
-                $(".mainH1").text(shVal);
-                $(".mainH1").css("color","red");
-                if( shVal === "true") {
-                    $(".mainH1").css("color","blue");
+                */
+
+                if( shVal === "false") {
                     $('.midlogo').hide('slow');
-                    $.cookies.set("show", "true", { expires: 1200 });
+                    //$.cookies.set("show", "true", { expires: 1200 });
+                    shVal = "true"
                 }
                 else {
-                    $(".mainH1").css("color","green");
                     $('.midlogo').show('slow');
-                    document.cookie = "show=true";
+                    //document.cookie = "show=true";
+                    shVal = "false";
                 }
             });
         });
@@ -56,9 +60,9 @@
     <h1 class="mainH1">Surrealitní kancelář</h1>
     <img src="content/arrow.png" class="arrow">
     <div class="midlogo">
-        <div class="logo"><a href="Location.html"><image src="content/map.png" class="ptrImg"></a></div>
-        <div class="logo"><a href="Contacts.html"><image src="content/contacts.png" class="ptrImg"></a></div>
-        <div class="logo"><a href="Informations.html"><image src="content/info.png" class="ptrImg"></a></div>
+        <div class="logo"><a href="Location.html"><img src="content/map.png" class="ptrImg"></a></div>
+        <div class="logo"><a href="Contacts.html"><img src="content/contacts.png" class="ptrImg"></a></div>
+        <div class="logo"><a href="Informations.html"><img src="content/info.png" class="ptrImg"></a></div>
     </div>
     <div class="center">
         <div class = main>
@@ -90,22 +94,20 @@
     <div class="footer">
         <div class="foot1">
             <ul>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
+                <li>Telefon: 123 456 799</li>
+                <li>E-mail: aabbcc@ddeeffgg.hh</li>
+                <li>Adresa: Nowhere 156</li>
             </ul>
         </div>
         <div class="foot2">
             <ul>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
-                <li>ele1</li>
+                <li>Po: 8:00 - 18:00</li>
+                <li>Ut: 8:00 - 18:00</li>
+                <li>St: 8:00 - 18:00</li>
+                <li>Čt: 8:00 - 18:00</li>
+                <li>Pá: 8:00 - 15:00</li>
+                <li>So: 8:00 - 11:30</li>
+                <li>Ne: Zavřeno</li>
             </ul>
         </div>
 

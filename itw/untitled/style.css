@@ -143,8 +143,8 @@ a{
     height:100%;
     color:white;
     display:flex;
-     content-align:center;
-    justify-content: center;    
+    content-align:center;
+      
 
 }
 
@@ -156,4 +156,14 @@ a{
     height:700px;
     border:solid rgba(0, 0, 0, 0.3) 30px;
     border-radius:30px;
+}
+
+.foot1{
+    padding-left:600px;
+}
+.foot2{
+    padding-left:100px;
+}
+.foot2 > p{
+    font-style:bold;
 }
